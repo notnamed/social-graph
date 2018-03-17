@@ -1,0 +1,15 @@
+{% extends 'header.html' %}
+{% block body %}
+
+<div class="col-md-4 col-md-offset-4">
+  <form method="POST" action="/add" >
+    {{ form.csrf_token }}
+    <div class="form-group"><strong>User</strong>:<br /> {{ user }}</div>
+    <div class="form-group">{{ form.fullname.label }}: {{ form.fullname(class="form-control") }} </div>
+    <div class="form-group">{{ form.invitee.label }}: {{ form.invitee(class="form-control") }}</div>
+    <div class="form-group">{{ form.career.label}}: {{ form.career(class="form-control") }}</div>
+    <div class="form-group">{{ form.tribe.label }}: {{ form.tribe(class="form-control") }}</div>
+    <div class="form-group">{{ form.submit(class="btn btn-success") }} </div>
+</form>
+</div>
+{% endblock %}
