@@ -85,7 +85,7 @@ def addgraph():
         VALUES(?, ?, ?, ?, ?, ?);'''
 
         cur.execute(query,
-                    (flask_login.current_user.id,
+                    (flask_login.current_user.id.lower(),
                      request.form.get('fullname',''),
                      request.form.get('invitee',''),
                      request.form.get('tribe',''),
@@ -97,7 +97,7 @@ def addgraph():
 
     form = AddGraphData()
     return render_template('add_to_graph.html',
-                            user=flask_login.current_user.id,
+                            user=flask_login.current_user.id.lower(),
                             form=form,
                             splash=url_for('static', filename='books.jpg'))
 
@@ -153,7 +153,7 @@ def index():
         })
 
     return render_template('index.html',
-                           user=flask_login.current_user.id,
+                           user=flask_login.current_user.id.lower(),
                            graph_data=graph_data,
                            splash=url_for('static', filename='books.jpg'
                            ))
